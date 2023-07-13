@@ -1,4 +1,0 @@
-# https://www.robotstxt.org/robotstxt.html
-#Fuck off choom
-User-agent: *
-Disallow:
