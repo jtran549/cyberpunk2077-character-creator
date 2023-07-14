@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {  createBrowserRouter, RouterProvider,} from "react-router-dom";
+import 'primereact/resources/primereact.css';         
 import './index.css';
-import 'primereact/resources/primereact.css';                       
 import './theme.css';
 import MainPage from './components/MainPage';
 import RolePage from './components/RolePage';

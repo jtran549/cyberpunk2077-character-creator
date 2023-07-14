@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Steps } from 'primereact/steps';
+import { Image } from 'primereact/image';
 import { Outlet } from 'react-router-dom';
 
 function MainPage() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(Number(sessionStorage.getItem('activeIndex')));
   const items = [
       {
           label: 'Role',
@@ -39,9 +40,14 @@ function MainPage() {
       }
   ];
 
+  useEffect (() => {
+    sessionStorage.setItem('activeIndex', activeIndex.toString())
+  }, [activeIndex])
+
   return (
     <>
-      <Steps model={items} activeIndex={activeIndex} onSelect={(e) => setActiveIndex(e.index)} readOnly={false} />
+    <Image src={require('../images/logo.png')} width='400' height='130'/>
+      <Steps model={items} activeIndex={Number(sessionStorage.getItem('activeIndex'))} onSelect={(e) => setActiveIndex(e.index)} readOnly={false} />
       <Outlet/>
     </>
   );
