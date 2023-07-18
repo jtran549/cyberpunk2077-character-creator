@@ -36,7 +36,7 @@ function RolePage() {
             </div> 
             <div className='col text-center'> {/* abstract this out to a rolePicture component */}
                     <Card>
-                        <Image src={require('../images/netrunner.png')}/>
+                        <Image src={require(`../images/${selectedRole.code}.png`)}/>
                     </Card>
             </div>
         </>
