@@ -2,8 +2,10 @@ import React, {useEffect, useState} from 'react';
 import { Steps } from 'primereact/steps';
 import { Image } from 'primereact/image';
 import { Outlet } from 'react-router-dom';
+
 function MainPage() {
   const [activeIndex, setActiveIndex] = useState(Number(sessionStorage.getItem('activeIndex')));
+
   const items = [
       {
           label: 'Role',

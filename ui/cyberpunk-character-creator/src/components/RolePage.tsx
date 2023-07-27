@@ -6,7 +6,9 @@ import RoleDescription from './role/RoleDescription';
 
 function RolePage() {
 
-    const [selectedRole, setSelectedRole] = useState({ name: 'Solo', code: 'solo' })
+    let storedRole = JSON.parse(`${sessionStorage.getItem('selectedRole')}`);
+
+    const [selectedRole, setSelectedRole] = useState(storedRole ?? { name: 'Solo', code: 'solo' })
     const roles = [
         { name: 'Solo', code: "solo" },
         { name: 'Netrunner', code: "netrunner" },
@@ -21,8 +23,8 @@ function RolePage() {
     ]
 
     useEffect(() => {
-        console.log(selectedRole)
-        //alert(selectedRole.code ?? "test")
+        sessionStorage.setItem('selectedRole', JSON.stringify(selectedRole));
+        console.log(JSON.parse(`${sessionStorage.getItem('characterData')}`));
     }, [selectedRole])
 
     return (
@@ -34,7 +36,7 @@ function RolePage() {
                 <Dropdown value={selectedRole} onChange={(e) => setSelectedRole(e.value)} options={roles} optionLabel="name" 
                     placeholder="Select a role" className="w-full md:w-14rem" />
             </div> 
-            <div className='col text-center'> {/* abstract this out to a rolePicture component */}
+            <div className='col text-center'>
                     <Card>
                         <Image src={require(`../images/${selectedRole.code}.png`)}/>
                     </Card>
