@@ -5,6 +5,7 @@ import { Outlet } from 'react-router-dom';
 
 function MainPage() {
   const [activeIndex, setActiveIndex] = useState(Number(sessionStorage.getItem('activeIndex')));
+
   const items = [
       {
           label: 'Role',
@@ -48,7 +49,9 @@ function MainPage() {
     <>
     <Image src={require('../images/logo.png')} width='400' height='130'/>
       <Steps model={items} activeIndex={Number(sessionStorage.getItem('activeIndex'))} onSelect={(e) => setActiveIndex(e.index)} readOnly={false} />
-      <Outlet/>
+      <div className='grid' style={{paddingLeft:'200px', paddingRight:'200px', paddingTop:'50px'}}>
+        <Outlet/>
+      </div>
     </>
   );
 }
