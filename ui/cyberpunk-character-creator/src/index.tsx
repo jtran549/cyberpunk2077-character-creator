@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import {  createBrowserRouter, RouterProvider,} from "react-router-dom";
 import 'primereact/resources/primereact.css';         
 import './index.css';
+import '../node_modules/primeflex/primeflex.css'
 import './theme.css';
 import MainPage from './components/MainPage';
 import RolePage from './components/RolePage';
@@ -13,6 +14,7 @@ import SkillsPage from './components/SkillsPage';
 import ArmamentsPage from './components/ArmamentsPage';
 import OutfitPage from './components/Outfit';
 import CyberwarePage from './components/CyberwarePage';
+
 
 const router = createBrowserRouter([
   {
